@@ -1,0 +1,53 @@
+{
+  "name": "starter",
+  "version": "0.0.1",
+  "description": "Simple front-end starter template",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "serve": "browser-sync start -s 'dist' -f 'src' -b 'firefox' -w --no-notify",
+    "dev": "npm-run-all clean img -p dev:* serve",
+    "dev:html": "nodemon -e html -w ./src/page -x 'npm run copy'",
+    "dev:css": "sass --watch --no-source-map src/assets/scss/main.scss dist/assets/css/main.min.css",
+    "dev:js": "rollup -c -w",
+    "img": "npx imagemin src/assets/img --out-dir=dist/assets/images",
+    "copy": "html-minifier --input-dir src/page --file-ext html --output-dir dist",
+    "build": "npm-run-all clean img build:*",
+    "build:html": "html-minifier --input-dir src/page --file-ext html --output-dir dist --config-file html.config.js",
+    "build:js": "rollup -c --environment BUILD:production",
+    "build:sass": "sass --no-source-map src/assets/scss/main.scss src/assets/css/main.css",
+    "build:post": "postcss src/assets/css/main.css -o dist/assets/css/main.min.css"
+  },
+  "keywords": [
+    "starter",
+    "template"
+  ],
+  "author": "pasmurno by llcawc",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-json": "^4.1.0",
+    "autoprefixer": "^10.4.0",
+    "browser-sync": "^2.27.7",
+    "cssnano": "^5.0.12",
+    "html-minifier": "^4.0.0",
+    "imagemin": "^8.0.1",
+    "imagemin-cli": "^7.0.0",
+    "nodemon": "^2.0.15",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.61.1",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.45.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "bootstrap-icons": "^1.7.2",
+    "chalk": "^5.0.0",
+    "jquery": "^3.6.0"
+  },
+  "browserslist": [
+    "defaults"
+  ]
+}

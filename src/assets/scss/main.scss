@@ -1,0 +1,97 @@
+// main.scss
+// starter template v0.0.1, from pasmurno by llcawc, https://github.com/llcawc
+
+@import 'config';
+
+header {
+  background-image: url('../images/ice.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: $gutter 0;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  padding-left: $gutter * 0.5;
+  padding-right: $gutter * 0.5;
+  margin: 0 auto;
+  @media (min-width: 640px) {
+    max-width: 600px;
+  }
+  @media (min-width: 1024px) {
+    max-width: 960px;
+  }
+  @media (min-width: 1280px) {
+    max-width: 1200px;
+  }
+}
+
+nav {
+  margin: $gutter 0;
+}
+
+.active {
+  font-weight: 700;
+}
+
+blockquote {
+  position: relative;
+  margin-left: 3.5rem;
+  margin-right: 1.5rem;
+  &::before {
+    position: absolute;
+    top: -1.25rem;
+    left: -2.5rem;
+    content: '\2e42';
+    font-size: 500%;
+    line-height: 0;
+    color: $accent;
+  }
+}
+.abzac {
+  p {
+    text-indent: 1.5rem;
+  }
+  p::first-letter {
+    font-weight: 700;
+    font-size: 150%;
+    line-height: 1.5rem;
+    margin-right: 2px;
+  }
+}
+
+.column {
+  column-count: 1;
+  column-gap: $gutter;
+  @media (min-width: 640px) {
+    column-count: auto;
+    column-width: 20rem;
+  }
+}
+
+.pic {
+  width: 100%;
+  max-height: 8rem;
+  overflow: hidden;
+  margin: 0.5rem 0;
+  padding: 0;
+  img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    filter: sepia(0.8);
+  }
+}
+
+.go {
+  text-align: right;
+  padding: $gutter * 0.5;
+}
+
+footer {
+  text-align: center;
+  padding-top: $gutter;
+  padding-bottom: $gutter * 0.5;
+}
