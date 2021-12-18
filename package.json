@@ -1,8 +1,16 @@
 {
   "name": "starter",
   "version": "0.0.1",
+  "date": "2021.12.14",
+  "license": "ISC",
+  "author": "pasmurno by llcawc",
+  "homepage": "https://github.com/llcawc",
   "description": "Simple front-end starter template",
-  "main": "index.js",
+  "keywords": [
+    "starter",
+    "template"
+  ],
+  "main": "gulpfile.mjs",
   "scripts": {
     "clean": "rimraf dist",
     "serve": "browser-sync start -s 'dist' -f 'src' -b 'firefox' -w --no-notify",
@@ -18,12 +26,6 @@
     "build:sass": "sass --no-source-map src/assets/scss/main.scss src/assets/css/main.css",
     "build:post": "postcss src/assets/css/main.css -o dist/assets/css/main.min.css"
   },
-  "keywords": [
-    "starter",
-    "template"
-  ],
-  "author": "pasmurno by llcawc",
-  "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
     "autoprefixer": "^10.4.0",
