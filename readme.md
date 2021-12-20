@@ -1,6 +1,6 @@
 # Simple starter template for the front-end
 
-_Revision 0.0.1 from 2021.12.14_
+_Revision 0.0.2 from 2021.12.20_
 
 Starter uses only npm scripts as dependencies for front-end's works. On board: HTML-Minifier, SassDark, PostCSS witch Autoprefixer and Nanocss plugins, Rollup witch JSON and Terser plufins, Imagemin, Chalk for prank and beauty. In addition you can load a library of jQuery, bootstrap and bootstap-icons.
 
@@ -19,7 +19,7 @@ Default directory:
 
 ## Command
 
-### Develop in browser (default 'firefox'), watching files and live server reload.
+### Develop in browser (default 'chrome', var: 'firefox', 'msedge', 'opera' etc.), watching files and live server reload.
 _You can open the link too in any browser: `http://localhost:3000`_
 ```
 npm run dev

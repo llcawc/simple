@@ -14,7 +14,7 @@ const config = {
 }
 
 if (process.env.BUILD === 'production') {
-  console.log(chalk.magenta('JS Build production completed.'))
+  console.log(chalk.green('JS Build production completed.'))
 } else {
   console.log(chalk.magenta('JS Build development without watching completed.'))
 }

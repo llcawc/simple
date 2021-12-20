@@ -1,7 +1,7 @@
 {
   "name": "starter",
-  "version": "0.0.1",
-  "date": "2021.12.14",
+  "version": "0.0.2",
+  "date": "2021.12.20",
   "license": "ISC",
   "author": "pasmurno by llcawc",
   "homepage": "https://github.com/llcawc",
@@ -10,18 +10,18 @@
     "starter",
     "template"
   ],
-  "main": "gulpfile.mjs",
+  "main": "",
   "scripts": {
     "clean": "rimraf dist",
-    "serve": "browser-sync start -s 'dist' -f 'src' -b 'firefox' -w --no-notify",
+    "serve": "browser-sync start -s 'dist' -f 'src' -b 'chrome' -w --no-notify",
     "dev": "npm-run-all clean img -p dev:* serve",
-    "dev:html": "nodemon -e html -w ./src/page -x 'npm run copy'",
+    "dev:html": "nodemon -e html -w src -x 'npm run copy'",
     "dev:css": "sass --watch --no-source-map src/assets/scss/main.scss dist/assets/css/main.min.css",
     "dev:js": "rollup -c -w",
     "img": "npx imagemin src/assets/img --out-dir=dist/assets/images",
-    "copy": "html-minifier --input-dir src/page --file-ext html --output-dir dist",
+    "copy": "html-minifier --input-dir src --file-ext html --output-dir dist",
     "build": "npm-run-all clean img build:*",
-    "build:html": "html-minifier --input-dir src/page --file-ext html --output-dir dist --config-file html.config.js",
+    "build:html": "html-minifier --input-dir src --file-ext html --output-dir dist --config-file html.config.js",
     "build:js": "rollup -c --environment BUILD:production",
     "build:sass": "sass --no-source-map src/assets/scss/main.scss src/assets/css/main.css",
     "build:post": "postcss src/assets/css/main.css -o dist/assets/css/main.min.css"
