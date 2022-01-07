@@ -1,7 +1,7 @@
 {
   "name": "starter",
-  "version": "0.0.2",
-  "date": "2021.12.20",
+  "version": "0.0.3",
+  "date": "2022.01.07",
   "license": "ISC",
   "author": "pasmurno by llcawc",
   "homepage": "https://github.com/llcawc",
@@ -10,28 +10,30 @@
     "starter",
     "template"
   ],
+  "type": "module",
   "main": "",
   "scripts": {
-    "clean": "rimraf dist",
+    "cleandist": "rimraf dist",
     "serve": "browser-sync start -s 'dist' -f 'src' -b 'chrome' -w --no-notify",
-    "dev": "npm-run-all clean img -p dev:* serve",
+    "dev": "npm-run-all cleandist images -p dev:* serve",
     "dev:html": "nodemon -e html -w src -x 'npm run copy'",
-    "dev:css": "sass --watch --no-source-map src/assets/scss/main.scss dist/assets/css/main.min.css",
+    "dev:css": "sass --watch src/assets/scss/main.scss dist/assets/css/main.min.css",
     "dev:js": "rollup -c -w",
-    "img": "npx imagemin src/assets/img --out-dir=dist/assets/images",
-    "copy": "html-minifier --input-dir src --file-ext html --output-dir dist",
-    "build": "npm-run-all clean img build:*",
-    "build:html": "html-minifier --input-dir src --file-ext html --output-dir dist --config-file html.config.js",
+    "images": "imagemin src/assets/img --out-dir=dist/assets/images",
+    "copy": "copyfiles -u1 'src/**/*.html' dist",
+    "build": "npm-run-all cleandist images build:* && echo 'CSS temporary file cleaned, production completed'",
+    "build:html": "html-minifier-terser --collapse-whitespace --remove-comments --input-dir src --file-ext html --output-dir dist",
     "build:js": "rollup -c --environment BUILD:production",
     "build:sass": "sass --no-source-map src/assets/scss/main.scss src/assets/css/main.css",
-    "build:post": "postcss src/assets/css/main.css -o dist/assets/css/main.min.css"
+    "build:post": "postcss src/assets/css/main.css -o dist/assets/css/main.min.css && rimraf src/assets/css"
   },
   "devDependencies": {
     "@rollup/plugin-json": "^4.1.0",
-    "autoprefixer": "^10.4.0",
+    "autoprefixer": "^10.4.2",
     "browser-sync": "^2.27.7",
-    "cssnano": "^5.0.12",
-    "html-minifier": "^4.0.0",
+    "copyfiles": "^2.4.1",
+    "cssnano": "^5.0.14",
+    "html-minifier-terser": "^7.0.0-alpha.1",
     "imagemin": "^8.0.1",
     "imagemin-cli": "^7.0.0",
     "nodemon": "^2.0.15",
@@ -39,14 +41,13 @@
     "postcss": "^8.4.5",
     "postcss-cli": "^9.1.0",
     "rimraf": "^3.0.2",
-    "rollup": "^2.61.1",
+    "rollup": "^2.63.0",
     "rollup-plugin-terser": "^7.0.2",
-    "sass": "^1.45.0"
+    "sass": "^1.46.0"
   },
   "dependencies": {
     "bootstrap": "^5.1.3",
     "bootstrap-icons": "^1.7.2",
-    "chalk": "^5.0.0",
     "jquery": "^3.6.0"
   },
   "browserslist": [
