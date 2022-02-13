@@ -8,12 +8,12 @@ module.exports = {
   semi: false, // default: true
   singleQuote: true, // default: false
   jsxSingleQuote: true, // default: false
-  printWidth: 160, // default: 80
+  printWidth: 120, // default: 80
   trailingComma: 'es5',
   bracketSpacing: true,
   overrides: [
     {
-      files: ['*.js', '*.mjs'],
+      files: ['*.js', '*.cjs', '*.mjs'],
       options: {
         parser: 'flow',
       },

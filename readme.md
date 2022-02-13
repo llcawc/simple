@@ -1,6 +1,6 @@
 # Simple starter template for the front-end
 
-_Revision 0.0.3 from 2022.01.07_
+_Revision 0.0.4 from 2022.02.12_
 
 Starter uses only npm scripts as dependencies for front-end's works. On board: HTML-Minifier, SassDark, PostCSS witch Autoprefixer and Nanocss plugins, Rollup witch JSON and Terser plufins, Imagemin. In addition you can load a library of jQuery, bootstrap and bootstap-icons.
 
